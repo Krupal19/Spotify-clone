@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Clone</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="offlineBanner" class="networkBanner" role="status" aria-live="assertive" hidden>
+      <span class="networkIcon">
+        <img src="icons/wifi-error-solid-svgrepo-com.svg" alt="" />
+      </span>
+      <span>
+        <strong>You're currently offline</strong>
+        <small>Some online content may not be available, but you can continue browsing the available songs.</small>
+      </span>
+    </div>
+    <div id="onlineToast" class="networkToast" role="status" aria-live="polite" hidden>
+      <span class="networkIcon networkIconOnline">
+        <img src="icons/wifi-solid-svgrepo-com.svg" alt="" />
+      </span>
+      <span>
+        <strong>Back online</strong>
+        <small>Connection restored — your local playlist is ready.</small>
+      </span>
+    </div>
+    <nav class="topNav">
+      <ul>
+        <li class="brand">
+          <img src="logo.png" alt="Spotify" /><span>Spotify</span>
+        </li>
+        <li><button class="loginButton" type="button">Login</button></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <section class="songList" aria-labelledby="playlistTitle">
+        <p class="eyebrow">YOUR PLAYLIST</p>
+        <h1 id="playlistTitle">Best of NCS</h1>
+        <p class="playlistDescription">The tracks in your songs folder, all in one place.</p>
+        <div class="songItems" id="songItems"></div>
+      </section>
+
+      <aside class="featuredTrack" aria-label="Selected track">
+        <img id="featuredCover" src="covers/10.jpg" alt="Album cover" />
+        <p class="eyebrow">NOW PLAYING</p>
+        <h2 id="featuredTitle">Let me love you</h2>
+        <p class="featuredArtist">Your local playlist</p>
+      </aside>
+    </main>
+
+    <footer class="bottom">
+      <div class="nowPlaying">
+        <img id="playerCover" src="covers/10.jpg" alt="" />
+        <div>
+          <strong id="playerTitle">Let me love you</strong>
+          <span>Your local playlist</span>
+        </div>
+      </div>
+      <div class="playerControls">
+        <div class="icons">
+          <button id="shuffleButton" type="button" aria-label="Shuffle off" aria-pressed="false">
+            <img src="icons/shuffle.svg" alt="" />
+          </button>
+          <button id="previousButton" type="button" aria-label="Previous song">
+            <img src="icons/backward-svgrepo-com.svg" alt="" />
+          </button>
+          <button id="playButton" type="button" aria-label="Play">
+            <img src="icons/play-circle-svgrepo-com.svg" alt="" />
+          </button>
+          <button id="nextButton" type="button" aria-label="Next song">
+            <img src="icons/forward-svgrepo-com.svg" alt="" />
+          </button>
+          <button id="repeatButton" type="button" aria-label="Repeat off" aria-pressed="false">
+            <img src="icons/repeat-svgrepo-com.svg" alt="" />
+          </button>
+        </div>
+        <p id="playerStatus" class="playerStatus" role="status" aria-live="polite"></p>
+        <div class="progress">
+          <span id="currentTime">0:00</span>
+          <input type="range" id="songProgressBar" min="0" max="1000" value="0" aria-label="Song progress" />
+          <span id="duration">0:00</span>
+        </div>
+        <label class="volumeControl" for="volumeBar">
+          <button id="muteButton" type="button" aria-label="Mute" aria-pressed="false">
+            <img src="icons/volume-high-svgrepo-com.svg" alt="" />
+          </button>
+          <input type="range" id="volumeBar" min="0" max="100" value="100" aria-label="Volume" />
+        </label>
+      </div>
+      <div class="playerSpacer" aria-hidden="true"></div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
